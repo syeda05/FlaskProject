@@ -33,6 +33,7 @@ class RecipeManagmentSystem:
 @app.route("/")
 def hello_world():
     print("hello")
+    return render_template("home.html")
 
 if __name__ == '__main__':
     app.run()
