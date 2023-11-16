@@ -1,0 +1,95 @@
+
+
+<header>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/style.css">
+  </header>
+  
+  <body>
+  
+      <header>
+          <h1 id='welcome'>Recipe Management System!</h1> <img id='logo' img src="{{ logo }}" width="200" height="200" style="margin-left: 40px">
+      </header>
+      
+  
+        <main>
+          <h2>list of all recipes</h2>
+          
+          <div id="keyword">
+            <h5>Search for recipes by key word: </h5>
+            <form action="/keyword">
+              <input type="text" name="keyword">
+              <input type="submit" value="Search">
+            </form>
+          </div>
+          
+          <br><br><br>
+  
+          <div id="category">
+            <h5>filter recipes by category:</h5>
+            <form name="selection" action="/category">
+              <select name="selection">
+                <option value="Breakfast">Breakfast</option>
+                <option value="Lunch">Lunch</option>
+                <option value="Dinner">Dinner</option>
+              </select>
+              <input type="submit" value="Filter">
+            </form>
+          </div>
+  
+          <br><br><br>
+  
+          <a href="/add-recipe"><input class="add_button" type="submit" value="Add new recipe"></a>
+          
+          <br><br><br>
+          
+  
+          <!-- displaying all recipes -->
+          <table>
+            <tr> 
+              <th id="pic">image</th>
+              <th id="dish">Dish</th>
+              <th id="ingredients">ingredients</th>
+              <th id="instructions">instructions</th>
+              <th id="categoryy">Category</th>  
+              <th id="rating">Rating</th> 
+              <th id="options">Options</th>
+          
+            </tr>
+            {%for recipe in recipe_list %}
+              <tr>
+                <td>
+                  <div class="product">
+                    <img src="/static/images/{{recipe.img}}">
+                  </div>
+                </td>
+  
+            
+                <td >{{recipe.name}}</td>
+                <td class="product_description">
+                  {%for ingredient in recipe.ingredients%}
+                    <li>{{ingredient}}</li>
+                  {% endfor %}
+                </td>
+                <td >{{recipe.instructions}}</td>
+                <td>{{recipe.category}}</td>
+                <td>{{recipe.rating}}</td>
+                <td><a href="/delete-recipe?id={{recipe.id}}"><input type="button" value="Delete"></a><br>
+                    <a href="/edit-recipe?id={{recipe.id}}"><input type="button" value="Edit"></a></td>
+  
+  
+              </tr>
+            {% endfor %}
+          </table>
+      
+        </main>
+  
+  
+  </body>
+  
+  
+  
+  
+  
+  
+  
