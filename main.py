@@ -20,9 +20,9 @@ class RecipeManagmentSystem:
         self.db = firestore.client()
         self.collection = self.db.collection(db_name)
 
-    @app.route("/")
-    def hello_world():
-        return 
+@app.route("/")
+def hello_world():
+    print("hello")
 
 if __name__ == '__main__':
     app.run()
