@@ -45,13 +45,13 @@ def db_connection():
     return recipes_list
     
     
+recipes_list = db_connection()
 
 @app.route("/")
 def view_recipes():
-    recipes= db_connection()
-    print(recipes)
+    print(recipes_list)
     logo = os.path.join(app.config['UPLOAD_FOLDER'], 'logo.jpg')
-    return render_template("home.html",logo=logo,recipe_list=recipes)
+    return render_template("home.html",logo=logo,recipe_list=recipes_list)
 
 
 if __name__ == '__main__':
