@@ -50,7 +50,7 @@ recipe_list_backup = recipe_list
 
 @app.route("/")
 def view_recipes():
-    print(recipes_list)
+
     logo = os.path.join(app.config['UPLOAD_FOLDER'], 'logo.jpg')
     return render_template("home.html",logo=logo,recipe_list=recipes_list)
 
@@ -69,4 +69,6 @@ def deleteRecipe():
 
 if __name__ == '__main__':
     app.run()
+
+
 
