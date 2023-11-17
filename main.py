@@ -49,11 +49,17 @@ recipes_list = db_connection()
 
 @app.route("/")
 def view_recipes():
-    print(recipes_list)
+
     logo = os.path.join(app.config['UPLOAD_FOLDER'], 'logo.jpg')
     return render_template("home.html",logo=logo,recipe_list=recipes_list)
 
+@app.route("/deleteRecipe")
+def deleteRecipe():
+    print("delete")
+    return 
 
 if __name__ == '__main__':
     app.run()
+
+
 
