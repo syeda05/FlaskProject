@@ -46,6 +46,7 @@ def db_connection():
     
     
 recipes_list = db_connection()
+recipe_list_backup = recipe_list
 
 @app.route("/")
 def view_recipes():
@@ -53,6 +54,18 @@ def view_recipes():
     logo = os.path.join(app.config['UPLOAD_FOLDER'], 'logo.jpg')
     return render_template("home.html",logo=logo,recipe_list=recipes_list)
 
+@app.route("/deleteRecipe")
+def deleteRecipe():
+
+    logo = os.path.join(app.config['UPLOAD_FOLDER'], 'logo.jpg')
+    recipe_id = request.args.get("id")
+    i= 0 
+    for recipe in recipe_list_backup:
+        if recipe_id == str(recipe['id']):
+            recipe_list_backup.pop(i)
+        i=i+1
+    #return render_template("delete-confirmation.html",logo=logo)
+    print("deleted")
 
 if __name__ == '__main__':
     app.run()
