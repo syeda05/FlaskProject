@@ -46,7 +46,7 @@ def db_connection():
     
     
 recipes_list = db_connection()
-recipe_list_backup = recipes_list
+recipe_list_backup = recipe_list
 
 @app.route("/")
 def view_recipes():
