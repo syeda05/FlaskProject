@@ -45,14 +45,18 @@ def db_connection():
     return recipes_list
     
     
+<<<<<<< HEAD
 recipes_list = db_connection()
 recipe_list_backup = recipe_list
+=======
+>>>>>>> parent of 82d1369 (modified view_recipes function)
 
 @app.route("/")
 def view_recipes():
-    print(recipes_list)
+    recipes= db_connection()
+    print(recipes)
     logo = os.path.join(app.config['UPLOAD_FOLDER'], 'logo.jpg')
-    return render_template("home.html",logo=logo,recipe_list=recipes_list)
+    return render_template("home.html",logo=logo,recipe_list=recipes)
 
 <<<<<<< HEAD
 <<<<<<< HEAD
