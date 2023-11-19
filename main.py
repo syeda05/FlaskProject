@@ -50,10 +50,11 @@ recipe_list_backup = recipe_list
 
 @app.route("/")
 def view_recipes():
-
+    print(recipes_list)
     logo = os.path.join(app.config['UPLOAD_FOLDER'], 'logo.jpg')
     return render_template("home.html",logo=logo,recipe_list=recipes_list)
 
+<<<<<<< HEAD
 @app.route("/deleteRecipe")
 def deleteRecipe():
 
@@ -66,9 +67,9 @@ def deleteRecipe():
         i=i+1
     #return render_template("delete-confirmation.html",logo=logo)
     print("deleted")
+=======
+>>>>>>> parent of bc3d2b8 (created delteRecipe function)
 
 if __name__ == '__main__':
     app.run()
-
-
 
