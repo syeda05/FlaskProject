@@ -45,13 +45,6 @@
           
   
           <!-- displaying all recipes -->
-
-         
-
-          {%for recipe in recipe_list%}
-            {{recipe.name}}
-          {% endfor %}
-          
           <table>
             <tr> 
               <th id="pic">image</th>
@@ -64,25 +57,24 @@
           
             </tr>
             {%for recipe in recipe_list %}
-            
               <tr>
                 <td>
                   <div class="product">
-                    <img src="/static/images/{{recipe.image}}">
+                    <img src="/static/images/{{recipe.img}}">
                   </div>
                 </td>
   
             
                 <td >{{recipe.name}}</td>
                 <td class="product_description">
-                  {%for ingredient in recipe.ingredient%}
+                  {%for ingredient in recipe.ingredients%}
                     <li>{{ingredient}}</li>
                   {% endfor %}
                 </td>
-                <td >{{recipe.instruction}}</td>
+                <td >{{recipe.instructions}}</td>
                 <td>{{recipe.category}}</td>
                 <td>{{recipe.rating}}</td>
-                <td><a href="/deleteRecipe?id={{recipe.id}}"><input type="button" value="Delete"></a><br>
+                <td><a href="/delete-recipe?id={{recipe.id}}"><input type="button" value="Delete"></a><br>
                     <a href="/edit-recipe?id={{recipe.id}}"><input type="button" value="Edit"></a></td>
   
   
