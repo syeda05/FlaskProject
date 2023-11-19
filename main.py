@@ -56,6 +56,7 @@ def view_recipes():
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 @app.route("/deleteRecipe")
 def deleteRecipe():
 
@@ -68,6 +69,8 @@ def deleteRecipe():
         i=i+1
     #return render_template("delete-confirmation.html",logo=logo)
     print("deleted")
+=======
+>>>>>>> parent of bc3d2b8 (created delteRecipe function)
 =======
 >>>>>>> parent of bc3d2b8 (created delteRecipe function)
 =======
